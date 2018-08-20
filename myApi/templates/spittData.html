@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Ajax Call API</title>
+</head>
+<body>
+    <div class="container jumbotron">
+     <h2 align="center">Rest Frame Work API call.</h2>
+    </div>
+    <div class="container">
+        <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Father Name</th>
+        <th>Roll No</th>
+        <th>Section</th>
+      </tr>
+    </thead>
+    <tbody id="lala">
+
+
+    </tbody>
+  </table>
+
+    </div>
+
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+    $(function (){
+
+        $.ajax({
+        type: 'GET',
+        url: 'http://127.0.0.1:8000/student_list/',
+        success: function(data){
+            $.each(data, function(i, data){
+                $("#lala").append("<tr><td>"+data.first_name+"</td><td>"+data.last_name+"</td><td>"+data.father_name+
+                "</td><td>"+data.roll_no+"</td><td>"+data.section+"</td><tr>")
+            });
+        }
+        });
+
+
+    });
+</script>
